@@ -1,0 +1,45 @@
+IoT Practicals
+Practical 1:
+Aim: Starting Raspberry pi OS, familiarising with Raspberry Pi Components and interface, connecting to ethernet, monitor, USB.
+ 1. Familiarizing with Raspberry Pi Components and Interface
+The Raspberry Pi is a compact, single-board computer with several key components and ports:
+
+
+Component-------Function/Use
+
+ARM CPU/GPU-----Main processor for running the OS and graphics
+GPIO Pins-------General Purpose Input/Output for connecting LEDs, sensors, etc.
+HDMI Port-------Connects to a monitor or TV for video output
+USB Ports-------Connects peripherals like keyboard, mouse, USB drives
+Ethernet Port---For wired network connection (available on most models)
+Audio Jack------Connects headphones or speakers
+MicroSD Card Slot------Holds the OS and user files; required for booting
+Power Port----------Supplies power (typically via micro-USB or USB-C)
+Camera/Display Ports-----For official camera and display modules
+
+
+2. Setting Up and Starting Raspberry Pi OS
+a. Prepare the SD Card with Raspberry Pi OS
+Download and install Raspberry Pi Imager on your computer.
+Insert a microSD card (at least 8GB recommended) into your computer.
+Use Raspberry Pi Imager to select and write the latest Raspberry Pi OS onto the card.
+Once complete, safely eject the microSD card.
+b. Assemble Your Raspberry Pi
+Insert the prepared microSD card into the Raspberry Pi’s slot.
+Connect peripherals (monitor, keyboard, mouse, Ethernet cable if needed) while the Pi is powered off.
+Connect the power supply last. The Pi will power up and begin booting the OS.
+3. Connecting to Peripherals
+a. Connecting to a Monitor
+Use the appropriate HDMI cable (micro-HDMI for Pi 4/5, standard HDMI for Pi 3 and earlier).
+Plug the cable from the Pi’s HDMI port to your monitor.
+Power on the monitor and select the correct HDMI input.
+b. Connecting Keyboard and Mouse
+Plug a USB keyboard and mouse into the USB ports.
+For wireless devices, plug in their USB dongle receivers.
+c. Connecting to Ethernet
+Plug an Ethernet cable into the Pi’s Ethernet port and the other end into your router or switch.
+The Pi will automatically attempt to obtain an IP address via DHCP when powered on.
+d. Connecting USB Devices
+Use the USB ports to connect USB drives, cameras, or other peripherals.
+If you need more ports, use a powered USB hub.
+Tip: Always connect all peripherals before powering on the Raspberry Pi to avoid hardware detection issues.

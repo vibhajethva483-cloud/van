@@ -1,0 +1,201 @@
+#practical 6
+index.cshtml
+
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h1>Welcome Page</h1>
+
+@{
+    var Title = "Welcome to Razor syntax!";
+    var weekDay = DateTime.Now.DayOfWeek;
+    var HomeMessage = Title + " Today is: " + weekDay;
+}
+
+<p>Razor Message : @HomeMessage</p>
+
+#display whole number from 0 to 1
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h1>Welcome Page</h1>
+
+@for (int i = 0; i < 10; i++)
+{
+    <p>@i</p>
+}
+
+Display a mathematical table of 5
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h1>Welcome Page</h1>
+
+@for (int i = 1; i < 10; i++)
+{
+    int result = 5 * i;
+    <p>5 x @i = @result</p>
+}
+
+Display values of an array in a view
+@model string[]
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h2>This is a list of courses for syit</h2>
+@foreach(string cname in Model)
+{
+    <h2>@cname</h2>
+}
+
+myhomecontroller.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Practical6.Controllers
+{
+    public class MyHomeController : Controller
+    {
+        // GET: MyHome
+        public ActionResult Index()
+        {
+            string[] courses = { "FYIT", "SYIT", "TYIT" };
+            return View(courses);
+        }
+    }
+}
+
+Display the list of movies in an ordered list
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Practical6.Controllers
+{
+    public class MovieController : Controller
+    {
+        // GET: Movie
+        public ActionResult Index()
+        {
+            string[] movies = { "Captain America: Civil War", "Spiderman: Homecoming", "Doctor Strange", "Guardians of the Galaxy", "Black Panther" };
+            return View(movies);
+        }
+    }
+}
+Index.cshtml
+@model string[]
+@{
+    Layout = null;
+}
+
+<h2>Index</h2>
+<body>
+<h1>List of Movies:</h1>
+<ol type="1">
+@foreach(string name in Model)
+{
+    <li>@name</li>
+}
+</ol>
+</body>
+
+Q6. Add a modal class
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Practical6.Models
+{
+    public class UserModel
+    {
+        public string MovieName { get; set; }
+        public string ReleaseDate { get; set; }
+        public string MovieDuration { get; set; }
+
+        public UserModel(string moviename, string releasedate, string movieduration)
+        {
+            MovieName = moviename;
+            ReleaseDate = releasedate;
+            MovieDuration = movieduration;
+        }
+    }
+}
+
+TestController.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Practical6.Models;
+
+namespace Practical6.Controllers
+{
+    public class TestController : Controller
+    {
+        // GET: Test
+        public ActionResult Index()
+        {
+            List<UserModel> users = new List<UserModel>();
+            users.Add(new UserModel("Captain America: Civil War", "2016", "2:31"));
+            users.Add(new UserModel("Doctor Strange", "2016", "2:10"));
+            users.Add(new UserModel("Black Panther", "2018", "2:15"));
+            users.Add(new UserModel("Avengers: Infinity War", "2018", "3:0"));
+            return View("Test", users);
+        }
+    }
+}
+
+test.cshtml
+@model IEnumerable<Practical6.Models.UserModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<title>Test</title>
+<style>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+@Html.Label("Welcome to Test controller", new { @class = "label" });
+@Html.Label("This is a list of users", new { @class = "label" });
+
+<table border="1">
+<tr>
+    <th>Movie Name</th>
+    <th>Release Date</th>
+    <th>Movie Duration</th>
+</tr>
+@foreach (var u in Model)
+{
+<tr>
+    <td>@Html.DisplayFor(modelItem => u.MovieName)</td>
+    <td>@Html.DisplayFor(modelItem => u.ReleaseDate)</td>
+    <td>@Html.DisplayFor(modelItem => u.MovieDuration)</td>
+</tr>
+}
+</table>
+</body>
+</html>

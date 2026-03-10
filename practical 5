@@ -1,0 +1,65 @@
+Student.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace pracc5.Models
+{
+    public class Student
+    {
+        public int RollNo { get; set; }
+        public string Uid { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Course { get; set; }
+
+
+    }
+}
+
+MystudentController.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using pracc5.Models;
+
+namespace pracc5.Controllers
+{
+    public class MystudentController : Controller
+    {
+        // GET: Mystudent
+        public ActionResult Display()
+        {
+            Student st = new Student();
+            st.RollNo = 22;
+            st.Uid = "24BIT022";
+
+            st.FirstName ="Vibha";
+            st.LastName = "Jethwa";
+            st.Course = "Sybsc";
+
+
+
+            return View(st);
+        }
+    }
+}
+
+Display.cshtml
+@model pracc5.Models.Student
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+<h3>Your details: </h3>
+<p>Roll No: @Model.RollNo</p>
+<p>Uid: @Model.Uid</p>
+<p>Firstname: @Model.FirstName</p>
+<p>Lastname: @Model.LastName</p>
+<p>Course: @Model.Course
+
+</p>

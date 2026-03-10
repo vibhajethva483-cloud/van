@@ -1,0 +1,56 @@
+site master
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="praaactical9.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <div style="background-color:lightpink;color:white;padding:10px;">
+            <h2>College Website</h2>
+        </div>
+        <div>
+            <a href="Home.aspx">Home.aspx</a>
+            <a href="Student.aspx">Student.aspx</a>
+            <a href="Academics.aspx">Academics.aspx</a>
+            <a href="Contact.aspx">Contact.aspx</a>
+        </div>
+
+        <hr />
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+      </form>
+</body>
+</html>
+
+style.css
+body {
+    font-family: Arial;
+    background-color: #ffe6f0; /* light pink background */
+}
+
+a {
+    background-color: pink; /* pink menu */
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+    a:hover {
+        background-color: #ff66b2; /* darker pink when mouse over */
+    }
+
+h2 {
+    color: #cc0066; /* dark pink heading */
+}
+
